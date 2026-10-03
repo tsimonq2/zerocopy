@@ -2,9 +2,9 @@
 // It is not intended for manual editing.
 
 #![allow(unknown_lints, non_local_definitions)]
-use std::fmt::{self, Debug};
+use core::fmt::{self, Debug};
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Abi {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Abi");
@@ -14,7 +14,7 @@ impl Debug for crate::Abi {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::AngleBracketedGenericArguments {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "AngleBracketedGenericArguments")
@@ -32,13 +32,12 @@ impl crate::AngleBracketedGenericArguments {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Arm {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Arm");
         formatter.field("attrs", &self.attrs);
         formatter.field("pat", &self.pat);
-        formatter.field("guard", &self.guard);
         formatter.field("fat_arrow_token", &self.fat_arrow_token);
         formatter.field("body", &self.body);
         formatter.field("comma", &self.comma);
@@ -46,7 +45,7 @@ impl Debug for crate::Arm {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::AssocConst {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("AssocConst");
@@ -58,7 +57,7 @@ impl Debug for crate::AssocConst {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::AssocType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("AssocType");
@@ -70,7 +69,7 @@ impl Debug for crate::AssocType {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::AttrStyle {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("AttrStyle::")?;
@@ -85,7 +84,7 @@ impl Debug for crate::AttrStyle {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Attribute {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Attribute");
@@ -97,30 +96,7 @@ impl Debug for crate::Attribute {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
-impl Debug for crate::BareFnArg {
-    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        let mut formatter = formatter.debug_struct("BareFnArg");
-        formatter.field("attrs", &self.attrs);
-        formatter.field("name", &self.name);
-        formatter.field("ty", &self.ty);
-        formatter.finish()
-    }
-}
-#[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
-impl Debug for crate::BareVariadic {
-    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        let mut formatter = formatter.debug_struct("BareVariadic");
-        formatter.field("attrs", &self.attrs);
-        formatter.field("name", &self.name);
-        formatter.field("dots", &self.dots);
-        formatter.field("comma", &self.comma);
-        formatter.finish()
-    }
-}
-#[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::BinOp {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("BinOp::")?;
@@ -269,7 +245,7 @@ impl Debug for crate::BinOp {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Block {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Block");
@@ -278,8 +254,16 @@ impl Debug for crate::Block {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::BlockModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("BlockModifiers");
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::BoundLifetimes {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("BoundLifetimes");
@@ -290,8 +274,44 @@ impl Debug for crate::BoundLifetimes {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::CapturedParam {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        formatter.write_str("CapturedParam::")?;
+        match self {
+            crate::CapturedParam::Lifetime(v0) => {
+                let mut formatter = formatter.debug_tuple("Lifetime");
+                formatter.field(v0);
+                formatter.finish()
+            }
+            crate::CapturedParam::Ident(v0) => {
+                let mut formatter = formatter.debug_tuple("Ident");
+                formatter.field(v0);
+                formatter.finish()
+            }
+        }
+    }
+}
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::ClosureModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("ClosureModifiers");
+        formatter.finish()
+    }
+}
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::ConstModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("ConstModifiers");
+        formatter.field("defaultness", &self.defaultness);
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ConstParam {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("ConstParam");
@@ -300,13 +320,12 @@ impl Debug for crate::ConstParam {
         formatter.field("ident", &self.ident);
         formatter.field("colon_token", &self.colon_token);
         formatter.field("ty", &self.ty);
-        formatter.field("eq_token", &self.eq_token);
         formatter.field("default", &self.default);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Constraint {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Constraint");
@@ -318,7 +337,7 @@ impl Debug for crate::Constraint {
     }
 }
 #[cfg(feature = "derive")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Data {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Data::")?;
@@ -330,7 +349,7 @@ impl Debug for crate::Data {
     }
 }
 #[cfg(feature = "derive")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::DataEnum {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "DataEnum")
@@ -347,7 +366,7 @@ impl crate::DataEnum {
     }
 }
 #[cfg(feature = "derive")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::DataStruct {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "DataStruct")
@@ -364,7 +383,7 @@ impl crate::DataStruct {
     }
 }
 #[cfg(feature = "derive")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::DataUnion {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "DataUnion")
@@ -380,7 +399,7 @@ impl crate::DataUnion {
     }
 }
 #[cfg(feature = "derive")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::DeriveInput {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("DeriveInput");
@@ -393,7 +412,7 @@ impl Debug for crate::DeriveInput {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Expr {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Expr::")?;
@@ -441,6 +460,8 @@ impl Debug for crate::Expr {
             crate::Expr::Path(v0) => v0.debug(formatter, "Path"),
             #[cfg(feature = "full")]
             crate::Expr::Range(v0) => v0.debug(formatter, "Range"),
+            #[cfg(feature = "full")]
+            crate::Expr::RawAddr(v0) => v0.debug(formatter, "RawAddr"),
             crate::Expr::Reference(v0) => v0.debug(formatter, "Reference"),
             #[cfg(feature = "full")]
             crate::Expr::Repeat(v0) => v0.debug(formatter, "Repeat"),
@@ -451,7 +472,6 @@ impl Debug for crate::Expr {
             crate::Expr::Try(v0) => v0.debug(formatter, "Try"),
             #[cfg(feature = "full")]
             crate::Expr::TryBlock(v0) => v0.debug(formatter, "TryBlock"),
-            #[cfg(feature = "full")]
             crate::Expr::Tuple(v0) => v0.debug(formatter, "Tuple"),
             crate::Expr::Unary(v0) => v0.debug(formatter, "Unary"),
             #[cfg(feature = "full")]
@@ -471,7 +491,7 @@ impl Debug for crate::Expr {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprArray {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprArray")
@@ -488,7 +508,7 @@ impl crate::ExprArray {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprAssign {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprAssign")
@@ -506,7 +526,7 @@ impl crate::ExprAssign {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprAsync {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprAsync")
@@ -519,12 +539,13 @@ impl crate::ExprAsync {
         formatter.field("attrs", &self.attrs);
         formatter.field("async_token", &self.async_token);
         formatter.field("capture", &self.capture);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("block", &self.block);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprAwait {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprAwait")
@@ -542,7 +563,7 @@ impl crate::ExprAwait {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprBinary {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprBinary")
@@ -560,7 +581,7 @@ impl crate::ExprBinary {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprBlock {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprBlock")
@@ -577,7 +598,7 @@ impl crate::ExprBlock {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprBreak {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprBreak")
@@ -595,7 +616,7 @@ impl crate::ExprBreak {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprCall {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprCall")
@@ -613,7 +634,7 @@ impl crate::ExprCall {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprCast {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprCast")
@@ -631,7 +652,7 @@ impl crate::ExprCast {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprClosure {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprClosure")
@@ -643,20 +664,20 @@ impl crate::ExprClosure {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("lifetimes", &self.lifetimes);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("constness", &self.constness);
-        formatter.field("movability", &self.movability);
         formatter.field("asyncness", &self.asyncness);
         formatter.field("capture", &self.capture);
-        formatter.field("or1_token", &self.or1_token);
+        formatter.field("inputs_begin", &self.inputs_begin);
         formatter.field("inputs", &self.inputs);
-        formatter.field("or2_token", &self.or2_token);
+        formatter.field("inputs_end", &self.inputs_end);
         formatter.field("output", &self.output);
         formatter.field("body", &self.body);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprConst {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprConst")
@@ -668,12 +689,13 @@ impl crate::ExprConst {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("const_token", &self.const_token);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("block", &self.block);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprContinue {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprContinue")
@@ -690,7 +712,7 @@ impl crate::ExprContinue {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprField {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprField")
@@ -708,7 +730,7 @@ impl crate::ExprField {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprForLoop {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprForLoop")
@@ -729,7 +751,7 @@ impl crate::ExprForLoop {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprGroup {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprGroup")
@@ -746,7 +768,7 @@ impl crate::ExprGroup {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprIf {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprIf")
@@ -765,7 +787,7 @@ impl crate::ExprIf {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprIndex {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprIndex")
@@ -783,7 +805,7 @@ impl crate::ExprIndex {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprInfer {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprInfer")
@@ -799,7 +821,7 @@ impl crate::ExprInfer {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprLet {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprLet")
@@ -818,7 +840,7 @@ impl crate::ExprLet {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprLit {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprLit")
@@ -834,7 +856,7 @@ impl crate::ExprLit {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprLoop {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprLoop")
@@ -852,7 +874,7 @@ impl crate::ExprLoop {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprMacro")
@@ -868,7 +890,7 @@ impl crate::ExprMacro {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprMatch {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprMatch")
@@ -887,7 +909,7 @@ impl crate::ExprMatch {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprMethodCall {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprMethodCall")
@@ -908,7 +930,7 @@ impl crate::ExprMethodCall {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprParen {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprParen")
@@ -925,7 +947,7 @@ impl crate::ExprParen {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprPath {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprPath")
@@ -942,7 +964,7 @@ impl crate::ExprPath {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprRange {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprRange")
@@ -959,8 +981,27 @@ impl crate::ExprRange {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::ExprRawAddr {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        self.debug(formatter, "ExprRawAddr")
+    }
+}
+#[cfg(feature = "full")]
+impl crate::ExprRawAddr {
+    fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
+        let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
+        formatter.field("and_token", &self.and_token);
+        formatter.field("raw", &self.raw);
+        formatter.field("mutability", &self.mutability);
+        formatter.field("expr", &self.expr);
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprReference {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprReference")
@@ -978,7 +1019,7 @@ impl crate::ExprReference {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprRepeat {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprRepeat")
@@ -997,7 +1038,7 @@ impl crate::ExprRepeat {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprReturn {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprReturn")
@@ -1014,7 +1055,7 @@ impl crate::ExprReturn {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprStruct {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprStruct")
@@ -1035,7 +1076,7 @@ impl crate::ExprStruct {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprTry {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprTry")
@@ -1052,7 +1093,7 @@ impl crate::ExprTry {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprTryBlock {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprTryBlock")
@@ -1064,18 +1105,19 @@ impl crate::ExprTryBlock {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("try_token", &self.try_token);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("block", &self.block);
         formatter.finish()
     }
 }
-#[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg(any(feature = "derive", feature = "full"))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprTuple {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprTuple")
     }
 }
-#[cfg(feature = "full")]
+#[cfg(any(feature = "derive", feature = "full"))]
 impl crate::ExprTuple {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
@@ -1086,7 +1128,7 @@ impl crate::ExprTuple {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprUnary {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprUnary")
@@ -1103,7 +1145,7 @@ impl crate::ExprUnary {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprUnsafe {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprUnsafe")
@@ -1120,7 +1162,7 @@ impl crate::ExprUnsafe {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprWhile {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprWhile")
@@ -1139,7 +1181,7 @@ impl crate::ExprWhile {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ExprYield {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ExprYield")
@@ -1156,31 +1198,30 @@ impl crate::ExprYield {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Field {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Field");
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
-        formatter.field("mutability", &self.mutability);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("ident", &self.ident);
         formatter.field("colon_token", &self.colon_token);
         formatter.field("ty", &self.ty);
+        formatter.field("default", &self.default);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
-impl Debug for crate::FieldMutability {
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::FieldModifiers {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        formatter.write_str("FieldMutability::")?;
-        match self {
-            crate::FieldMutability::None => formatter.write_str("None"),
-        }
+        let mut formatter = formatter.debug_struct("FieldModifiers");
+        formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::FieldPat {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("FieldPat");
@@ -1192,7 +1233,7 @@ impl Debug for crate::FieldPat {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::FieldValue {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("FieldValue");
@@ -1204,7 +1245,7 @@ impl Debug for crate::FieldValue {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Fields {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Fields::")?;
@@ -1216,7 +1257,7 @@ impl Debug for crate::Fields {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::FieldsNamed {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "FieldsNamed")
@@ -1232,7 +1273,7 @@ impl crate::FieldsNamed {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::FieldsUnnamed {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "FieldsUnnamed")
@@ -1248,18 +1289,19 @@ impl crate::FieldsUnnamed {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::File {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("File");
         formatter.field("shebang", &self.shebang);
+        formatter.field("frontmatter", &self.frontmatter);
         formatter.field("attrs", &self.attrs);
         formatter.field("items", &self.items);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::FnArg {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("FnArg::")?;
@@ -1278,7 +1320,28 @@ impl Debug for crate::FnArg {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::FnModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("FnModifiers");
+        formatter.field("defaultness", &self.defaultness);
+        formatter.finish()
+    }
+}
+#[cfg(any(feature = "derive", feature = "full"))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::FnPtrVariadic {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("FnPtrVariadic");
+        formatter.field("attrs", &self.attrs);
+        formatter.field("name", &self.name);
+        formatter.field("dots", &self.dots);
+        formatter.field("comma", &self.comma);
+        formatter.finish()
+    }
+}
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ForeignItem {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("ForeignItem::")?;
@@ -1296,7 +1359,7 @@ impl Debug for crate::ForeignItem {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ForeignItemFn {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ForeignItemFn")
@@ -1308,13 +1371,14 @@ impl crate::ForeignItemFn {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("sig", &self.sig);
         formatter.field("semi_token", &self.semi_token);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ForeignItemMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ForeignItemMacro")
@@ -1331,7 +1395,7 @@ impl crate::ForeignItemMacro {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ForeignItemStatic {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ForeignItemStatic")
@@ -1343,6 +1407,7 @@ impl crate::ForeignItemStatic {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("safety", &self.safety);
         formatter.field("static_token", &self.static_token);
         formatter.field("mutability", &self.mutability);
         formatter.field("ident", &self.ident);
@@ -1353,7 +1418,7 @@ impl crate::ForeignItemStatic {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ForeignItemType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ForeignItemType")
@@ -1365,6 +1430,7 @@ impl crate::ForeignItemType {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("type_token", &self.type_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -1372,8 +1438,16 @@ impl crate::ForeignItemType {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::Frontmatter {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("Frontmatter");
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::GenericArgument {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("GenericArgument::")?;
@@ -1412,7 +1486,7 @@ impl Debug for crate::GenericArgument {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::GenericParam {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("GenericParam::")?;
@@ -1436,7 +1510,7 @@ impl Debug for crate::GenericParam {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Generics {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Generics");
@@ -1448,7 +1522,7 @@ impl Debug for crate::Generics {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ImplItem {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("ImplItem::")?;
@@ -1466,7 +1540,7 @@ impl Debug for crate::ImplItem {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ImplItemConst {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ImplItemConst")
@@ -1478,7 +1552,7 @@ impl crate::ImplItemConst {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
-        formatter.field("defaultness", &self.defaultness);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("const_token", &self.const_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -1491,7 +1565,7 @@ impl crate::ImplItemConst {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ImplItemFn {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ImplItemFn")
@@ -1503,14 +1577,14 @@ impl crate::ImplItemFn {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
-        formatter.field("defaultness", &self.defaultness);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("sig", &self.sig);
         formatter.field("block", &self.block);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ImplItemMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ImplItemMacro")
@@ -1527,7 +1601,7 @@ impl crate::ImplItemMacro {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ImplItemType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ImplItemType")
@@ -1539,7 +1613,7 @@ impl crate::ImplItemType {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
-        formatter.field("defaultness", &self.defaultness);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("type_token", &self.type_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -1550,14 +1624,17 @@ impl crate::ImplItemType {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
-impl Debug for crate::ImplRestriction {
-    fn fmt(&self, _formatter: &mut fmt::Formatter) -> fmt::Result {
-        match *self {}
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::ImplModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("ImplModifiers");
+        formatter.field("defaultness", &self.defaultness);
+        formatter.field("polarity", &self.polarity);
+        formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Index {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Index");
@@ -1567,7 +1644,7 @@ impl Debug for crate::Index {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Item {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Item::")?;
@@ -1596,7 +1673,7 @@ impl Debug for crate::Item {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemConst {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemConst")
@@ -1608,6 +1685,7 @@ impl crate::ItemConst {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("const_token", &self.const_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -1620,7 +1698,7 @@ impl crate::ItemConst {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemEnum {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemEnum")
@@ -1641,7 +1719,7 @@ impl crate::ItemEnum {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemExternCrate {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemExternCrate")
@@ -1662,7 +1740,7 @@ impl crate::ItemExternCrate {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemFn {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemFn")
@@ -1674,13 +1752,14 @@ impl crate::ItemFn {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("sig", &self.sig);
         formatter.field("block", &self.block);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemForeignMod {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemForeignMod")
@@ -1699,7 +1778,7 @@ impl crate::ItemForeignMod {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemImpl {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemImpl")
@@ -1710,7 +1789,7 @@ impl crate::ItemImpl {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
-        formatter.field("defaultness", &self.defaultness);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("unsafety", &self.unsafety);
         formatter.field("impl_token", &self.impl_token);
         formatter.field("generics", &self.generics);
@@ -1722,7 +1801,7 @@ impl crate::ItemImpl {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemMacro")
@@ -1740,7 +1819,7 @@ impl crate::ItemMacro {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemMod {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemMod")
@@ -1761,7 +1840,7 @@ impl crate::ItemMod {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemStatic {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemStatic")
@@ -1785,7 +1864,7 @@ impl crate::ItemStatic {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemStruct {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemStruct")
@@ -1806,7 +1885,7 @@ impl crate::ItemStruct {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemTrait {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemTrait")
@@ -1818,9 +1897,8 @@ impl crate::ItemTrait {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("unsafety", &self.unsafety);
-        formatter.field("auto_token", &self.auto_token);
-        formatter.field("restriction", &self.restriction);
         formatter.field("trait_token", &self.trait_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -1832,7 +1910,7 @@ impl crate::ItemTrait {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemTraitAlias {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemTraitAlias")
@@ -1854,7 +1932,7 @@ impl crate::ItemTraitAlias {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemType")
@@ -1866,17 +1944,19 @@ impl crate::ItemType {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("vis", &self.vis);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("type_token", &self.type_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
         formatter.field("eq_token", &self.eq_token);
         formatter.field("ty", &self.ty);
         formatter.field("semi_token", &self.semi_token);
+        formatter.field("where_clause_placement", &self.where_clause_placement);
         formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemUnion {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemUnion")
@@ -1896,7 +1976,7 @@ impl crate::ItemUnion {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ItemUse {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ItemUse")
@@ -1916,7 +1996,7 @@ impl crate::ItemUse {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Label {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Label");
@@ -1925,7 +2005,7 @@ impl Debug for crate::Label {
         formatter.finish()
     }
 }
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Lifetime {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "Lifetime")
@@ -1940,7 +2020,7 @@ impl crate::Lifetime {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::LifetimeParam {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("LifetimeParam");
@@ -1951,13 +2031,14 @@ impl Debug for crate::LifetimeParam {
         formatter.finish()
     }
 }
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Lit {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Lit::")?;
         match self {
             crate::Lit::Str(v0) => v0.debug(formatter, "Str"),
             crate::Lit::ByteStr(v0) => v0.debug(formatter, "ByteStr"),
+            crate::Lit::CStr(v0) => v0.debug(formatter, "CStr"),
             crate::Lit::Byte(v0) => v0.debug(formatter, "Byte"),
             crate::Lit::Char(v0) => v0.debug(formatter, "Char"),
             crate::Lit::Int(v0) => v0.debug(formatter, "Int"),
@@ -1972,7 +2053,7 @@ impl Debug for crate::Lit {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Local {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "Local")
@@ -1984,6 +2065,7 @@ impl crate::Local {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
         formatter.field("let_token", &self.let_token);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("pat", &self.pat);
         formatter.field("init", &self.init);
         formatter.field("semi_token", &self.semi_token);
@@ -1991,7 +2073,7 @@ impl crate::Local {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::LocalInit {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("LocalInit");
@@ -2001,8 +2083,16 @@ impl Debug for crate::LocalInit {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::LocalModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("LocalModifiers");
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Macro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Macro");
@@ -2014,7 +2104,7 @@ impl Debug for crate::Macro {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::MacroDelimiter {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("MacroDelimiter::")?;
@@ -2038,7 +2128,7 @@ impl Debug for crate::MacroDelimiter {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Member {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Member::")?;
@@ -2057,7 +2147,7 @@ impl Debug for crate::Member {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Meta {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Meta::")?;
@@ -2069,7 +2159,7 @@ impl Debug for crate::Meta {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::MetaList {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "MetaList")
@@ -2086,7 +2176,7 @@ impl crate::MetaList {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::MetaNameValue {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "MetaNameValue")
@@ -2103,7 +2193,18 @@ impl crate::MetaNameValue {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::NamedArg {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("NamedArg");
+        formatter.field("attrs", &self.attrs);
+        formatter.field("name", &self.name);
+        formatter.field("ty", &self.ty);
+        formatter.finish()
+    }
+}
+#[cfg(any(feature = "derive", feature = "full"))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ParenthesizedGenericArguments {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "ParenthesizedGenericArguments")
@@ -2120,12 +2221,13 @@ impl crate::ParenthesizedGenericArguments {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Pat {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Pat::")?;
         match self {
             crate::Pat::Const(v0) => v0.debug(formatter, "Const"),
+            crate::Pat::Guard(v0) => v0.debug(formatter, "Guard"),
             crate::Pat::Ident(v0) => v0.debug(formatter, "Ident"),
             crate::Pat::Lit(v0) => v0.debug(formatter, "Lit"),
             crate::Pat::Macro(v0) => v0.debug(formatter, "Macro"),
@@ -2150,7 +2252,25 @@ impl Debug for crate::Pat {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::PatGuard {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        self.debug(formatter, "PatGuard")
+    }
+}
+#[cfg(feature = "full")]
+impl crate::PatGuard {
+    fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
+        let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
+        formatter.field("pat", &self.pat);
+        formatter.field("if_token", &self.if_token);
+        formatter.field("guard", &self.guard);
+        formatter.finish()
+    }
+}
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatIdent {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatIdent")
@@ -2169,7 +2289,7 @@ impl crate::PatIdent {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatOr {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatOr")
@@ -2186,7 +2306,7 @@ impl crate::PatOr {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatParen {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatParen")
@@ -2203,7 +2323,7 @@ impl crate::PatParen {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatReference {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatReference")
@@ -2221,7 +2341,7 @@ impl crate::PatReference {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatRest {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatRest")
@@ -2237,7 +2357,7 @@ impl crate::PatRest {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatSlice {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatSlice")
@@ -2254,7 +2374,7 @@ impl crate::PatSlice {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatStruct {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatStruct")
@@ -2274,7 +2394,7 @@ impl crate::PatStruct {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatTuple {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatTuple")
@@ -2291,7 +2411,7 @@ impl crate::PatTuple {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatTupleStruct {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatTupleStruct")
@@ -2310,7 +2430,7 @@ impl crate::PatTupleStruct {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatType")
@@ -2328,7 +2448,7 @@ impl crate::PatType {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PatWild {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "PatWild")
@@ -2344,7 +2464,7 @@ impl crate::PatWild {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Path {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "Path")
@@ -2360,7 +2480,7 @@ impl crate::Path {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PathArguments {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("PathArguments::")?;
@@ -2376,7 +2496,7 @@ impl Debug for crate::PathArguments {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PathSegment {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("PathSegment");
@@ -2386,10 +2506,42 @@ impl Debug for crate::PathSegment {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::PointerMutability {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        formatter.write_str("PointerMutability::")?;
+        match self {
+            crate::PointerMutability::Const(v0) => {
+                let mut formatter = formatter.debug_tuple("Const");
+                formatter.field(v0);
+                formatter.finish()
+            }
+            crate::PointerMutability::Mut(v0) => {
+                let mut formatter = formatter.debug_tuple("Mut");
+                formatter.field(v0);
+                formatter.finish()
+            }
+        }
+    }
+}
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::PreciseCapture {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("PreciseCapture");
+        formatter.field("use_token", &self.use_token);
+        formatter.field("lt_token", &self.lt_token);
+        formatter.field("params", &self.params);
+        formatter.field("gt_token", &self.gt_token);
+        formatter.finish()
+    }
+}
+#[cfg(any(feature = "derive", feature = "full"))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PredicateLifetime {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("PredicateLifetime");
+        formatter.field("attrs", &self.attrs);
         formatter.field("lifetime", &self.lifetime);
         formatter.field("colon_token", &self.colon_token);
         formatter.field("bounds", &self.bounds);
@@ -2397,10 +2549,11 @@ impl Debug for crate::PredicateLifetime {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::PredicateType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("PredicateType");
+        formatter.field("attrs", &self.attrs);
         formatter.field("lifetimes", &self.lifetimes);
         formatter.field("bounded_ty", &self.bounded_ty);
         formatter.field("colon_token", &self.colon_token);
@@ -2409,7 +2562,7 @@ impl Debug for crate::PredicateType {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::QSelf {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("QSelf");
@@ -2422,7 +2575,7 @@ impl Debug for crate::QSelf {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::RangeLimits {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("RangeLimits::")?;
@@ -2441,21 +2594,42 @@ impl Debug for crate::RangeLimits {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Receiver {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Receiver");
         formatter.field("attrs", &self.attrs);
-        formatter.field("reference", &self.reference);
         formatter.field("mutability", &self.mutability);
         formatter.field("self_token", &self.self_token);
-        formatter.field("colon_token", &self.colon_token);
-        formatter.field("ty", &self.ty);
+        formatter.field("kind", &self.kind);
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::ReceiverKind {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        formatter.write_str("ReceiverKind::")?;
+        match self {
+            crate::ReceiverKind::Value => formatter.write_str("Value"),
+            crate::ReceiverKind::Reference(v0, v1, v2) => {
+                let mut formatter = formatter.debug_tuple("Reference");
+                formatter.field(v0);
+                formatter.field(v1);
+                formatter.field(v2);
+                formatter.finish()
+            }
+            crate::ReceiverKind::Typed(v0, v1) => {
+                let mut formatter = formatter.debug_tuple("Typed");
+                formatter.field(v0);
+                formatter.field(v1);
+                formatter.finish()
+            }
+        }
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::ReturnType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("ReturnType::")?;
@@ -2471,13 +2645,33 @@ impl Debug for crate::ReturnType {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::Safety {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        formatter.write_str("Safety::")?;
+        match self {
+            crate::Safety::Safe(v0) => {
+                let mut formatter = formatter.debug_tuple("Safe");
+                formatter.field(v0);
+                formatter.finish()
+            }
+            crate::Safety::Unsafe(v0) => {
+                let mut formatter = formatter.debug_tuple("Unsafe");
+                formatter.field(v0);
+                formatter.finish()
+            }
+            crate::Safety::Default => formatter.write_str("Default"),
+        }
+    }
+}
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Signature {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Signature");
         formatter.field("constness", &self.constness);
         formatter.field("asyncness", &self.asyncness);
-        formatter.field("unsafety", &self.unsafety);
+        formatter.field("safety", &self.safety);
         formatter.field("abi", &self.abi);
         formatter.field("fn_token", &self.fn_token);
         formatter.field("ident", &self.ident);
@@ -2490,7 +2684,7 @@ impl Debug for crate::Signature {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::StaticMutability {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("StaticMutability::")?;
@@ -2505,7 +2699,7 @@ impl Debug for crate::StaticMutability {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Stmt {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Stmt::")?;
@@ -2527,7 +2721,7 @@ impl Debug for crate::Stmt {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::StmtMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "StmtMacro")
@@ -2544,34 +2738,28 @@ impl crate::StmtMacro {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TraitBound {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("TraitBound");
         formatter.field("paren_token", &self.paren_token);
-        formatter.field("modifier", &self.modifier);
         formatter.field("lifetimes", &self.lifetimes);
+        formatter.field("modifiers", &self.modifiers);
+        formatter.field("maybe", &self.maybe);
         formatter.field("path", &self.path);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
-impl Debug for crate::TraitBoundModifier {
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::TraitBoundModifiers {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        formatter.write_str("TraitBoundModifier::")?;
-        match self {
-            crate::TraitBoundModifier::None => formatter.write_str("None"),
-            crate::TraitBoundModifier::Maybe(v0) => {
-                let mut formatter = formatter.debug_tuple("Maybe");
-                formatter.field(v0);
-                formatter.finish()
-            }
-        }
+        let mut formatter = formatter.debug_struct("TraitBoundModifiers");
+        formatter.finish()
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TraitItem {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("TraitItem::")?;
@@ -2589,7 +2777,7 @@ impl Debug for crate::TraitItem {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TraitItemConst {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TraitItemConst")
@@ -2600,6 +2788,7 @@ impl crate::TraitItemConst {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("const_token", &self.const_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -2611,7 +2800,7 @@ impl crate::TraitItemConst {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TraitItemFn {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TraitItemFn")
@@ -2622,6 +2811,7 @@ impl crate::TraitItemFn {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("sig", &self.sig);
         formatter.field("default", &self.default);
         formatter.field("semi_token", &self.semi_token);
@@ -2629,7 +2819,7 @@ impl crate::TraitItemFn {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TraitItemMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TraitItemMacro")
@@ -2646,7 +2836,7 @@ impl crate::TraitItemMacro {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TraitItemType {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TraitItemType")
@@ -2657,6 +2847,7 @@ impl crate::TraitItemType {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
         formatter.field("attrs", &self.attrs);
+        formatter.field("modifiers", &self.modifiers);
         formatter.field("type_token", &self.type_token);
         formatter.field("ident", &self.ident);
         formatter.field("generics", &self.generics);
@@ -2667,14 +2858,23 @@ impl crate::TraitItemType {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::TraitModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("TraitModifiers");
+        formatter.field("auto_token", &self.auto_token);
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Type {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Type::")?;
         match self {
             crate::Type::Array(v0) => v0.debug(formatter, "Array"),
-            crate::Type::BareFn(v0) => v0.debug(formatter, "BareFn"),
+            crate::Type::FnPtr(v0) => v0.debug(formatter, "FnPtr"),
             crate::Type::Group(v0) => v0.debug(formatter, "Group"),
             crate::Type::ImplTrait(v0) => v0.debug(formatter, "ImplTrait"),
             crate::Type::Infer(v0) => v0.debug(formatter, "Infer"),
@@ -2696,7 +2896,7 @@ impl Debug for crate::Type {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeArray {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeArray")
@@ -2706,6 +2906,7 @@ impl Debug for crate::TypeArray {
 impl crate::TypeArray {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("bracket_token", &self.bracket_token);
         formatter.field("elem", &self.elem);
         formatter.field("semi_token", &self.semi_token);
@@ -2714,16 +2915,17 @@ impl crate::TypeArray {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
-impl Debug for crate::TypeBareFn {
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::TypeFnPtr {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        self.debug(formatter, "TypeBareFn")
+        self.debug(formatter, "TypeFnPtr")
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-impl crate::TypeBareFn {
+impl crate::TypeFnPtr {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("lifetimes", &self.lifetimes);
         formatter.field("unsafety", &self.unsafety);
         formatter.field("abi", &self.abi);
@@ -2736,7 +2938,7 @@ impl crate::TypeBareFn {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeGroup {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeGroup")
@@ -2746,13 +2948,14 @@ impl Debug for crate::TypeGroup {
 impl crate::TypeGroup {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("group_token", &self.group_token);
         formatter.field("elem", &self.elem);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeImplTrait {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeImplTrait")
@@ -2762,13 +2965,14 @@ impl Debug for crate::TypeImplTrait {
 impl crate::TypeImplTrait {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("impl_token", &self.impl_token);
         formatter.field("bounds", &self.bounds);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeInfer {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeInfer")
@@ -2778,12 +2982,13 @@ impl Debug for crate::TypeInfer {
 impl crate::TypeInfer {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("underscore_token", &self.underscore_token);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeMacro {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeMacro")
@@ -2793,12 +2998,22 @@ impl Debug for crate::TypeMacro {
 impl crate::TypeMacro {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("mac", &self.mac);
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::TypeModifiers {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        let mut formatter = formatter.debug_struct("TypeModifiers");
+        formatter.field("defaultness", &self.defaultness);
+        formatter.finish()
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeNever {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeNever")
@@ -2808,12 +3023,13 @@ impl Debug for crate::TypeNever {
 impl crate::TypeNever {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("bang_token", &self.bang_token);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeParam {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("TypeParam");
@@ -2821,13 +3037,12 @@ impl Debug for crate::TypeParam {
         formatter.field("ident", &self.ident);
         formatter.field("colon_token", &self.colon_token);
         formatter.field("bounds", &self.bounds);
-        formatter.field("eq_token", &self.eq_token);
         formatter.field("default", &self.default);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeParamBound {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("TypeParamBound::")?;
@@ -2838,16 +3053,24 @@ impl Debug for crate::TypeParamBound {
                 formatter.finish()
             }
             crate::TypeParamBound::Lifetime(v0) => v0.debug(formatter, "Lifetime"),
+            #[cfg(feature = "full")]
+            crate::TypeParamBound::PreciseCapture(v0) => {
+                let mut formatter = formatter.debug_tuple("PreciseCapture");
+                formatter.field(v0);
+                formatter.finish()
+            }
             crate::TypeParamBound::Verbatim(v0) => {
                 let mut formatter = formatter.debug_tuple("Verbatim");
                 formatter.field(v0);
                 formatter.finish()
             }
+            #[cfg(not(feature = "full"))]
+            _ => unreachable!(),
         }
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeParen {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeParen")
@@ -2857,13 +3080,14 @@ impl Debug for crate::TypeParen {
 impl crate::TypeParen {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("paren_token", &self.paren_token);
         formatter.field("elem", &self.elem);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypePath {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypePath")
@@ -2873,13 +3097,14 @@ impl Debug for crate::TypePath {
 impl crate::TypePath {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("qself", &self.qself);
         formatter.field("path", &self.path);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypePtr {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypePtr")
@@ -2889,15 +3114,15 @@ impl Debug for crate::TypePtr {
 impl crate::TypePtr {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("star_token", &self.star_token);
-        formatter.field("const_token", &self.const_token);
         formatter.field("mutability", &self.mutability);
         formatter.field("elem", &self.elem);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeReference {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeReference")
@@ -2907,6 +3132,7 @@ impl Debug for crate::TypeReference {
 impl crate::TypeReference {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("and_token", &self.and_token);
         formatter.field("lifetime", &self.lifetime);
         formatter.field("mutability", &self.mutability);
@@ -2915,7 +3141,7 @@ impl crate::TypeReference {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeSlice {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeSlice")
@@ -2925,13 +3151,14 @@ impl Debug for crate::TypeSlice {
 impl crate::TypeSlice {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("bracket_token", &self.bracket_token);
         formatter.field("elem", &self.elem);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeTraitObject {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeTraitObject")
@@ -2941,13 +3168,14 @@ impl Debug for crate::TypeTraitObject {
 impl crate::TypeTraitObject {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("dyn_token", &self.dyn_token);
         formatter.field("bounds", &self.bounds);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::TypeTuple {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "TypeTuple")
@@ -2957,13 +3185,14 @@ impl Debug for crate::TypeTuple {
 impl crate::TypeTuple {
     fn debug(&self, formatter: &mut fmt::Formatter, name: &str) -> fmt::Result {
         let mut formatter = formatter.debug_struct(name);
+        formatter.field("attrs", &self.attrs);
         formatter.field("paren_token", &self.paren_token);
         formatter.field("elems", &self.elems);
         formatter.finish()
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UnOp {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("UnOp::")?;
@@ -2987,7 +3216,7 @@ impl Debug for crate::UnOp {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UseGlob {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("UseGlob");
@@ -2996,7 +3225,7 @@ impl Debug for crate::UseGlob {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UseGroup {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("UseGroup");
@@ -3006,7 +3235,7 @@ impl Debug for crate::UseGroup {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UseName {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("UseName");
@@ -3015,7 +3244,7 @@ impl Debug for crate::UseName {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UsePath {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("UsePath");
@@ -3026,7 +3255,7 @@ impl Debug for crate::UsePath {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UseRename {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("UseRename");
@@ -3037,7 +3266,7 @@ impl Debug for crate::UseRename {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::UseTree {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("UseTree::")?;
@@ -3071,7 +3300,7 @@ impl Debug for crate::UseTree {
     }
 }
 #[cfg(feature = "full")]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Variadic {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Variadic");
@@ -3083,7 +3312,7 @@ impl Debug for crate::Variadic {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Variant {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("Variant");
@@ -3095,7 +3324,7 @@ impl Debug for crate::Variant {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::VisRestricted {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         self.debug(formatter, "VisRestricted")
@@ -3113,7 +3342,7 @@ impl crate::VisRestricted {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::Visibility {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("Visibility::")?;
@@ -3129,7 +3358,7 @@ impl Debug for crate::Visibility {
     }
 }
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::WhereClause {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         let mut formatter = formatter.debug_struct("WhereClause");
@@ -3138,8 +3367,19 @@ impl Debug for crate::WhereClause {
         formatter.finish()
     }
 }
+#[cfg(feature = "full")]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
+impl Debug for crate::WhereClausePlacement {
+    fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        formatter.write_str("WhereClausePlacement::")?;
+        match self {
+            crate::WhereClausePlacement::Early => formatter.write_str("Early"),
+            crate::WhereClausePlacement::Late => formatter.write_str("Late"),
+        }
+    }
+}
 #[cfg(any(feature = "derive", feature = "full"))]
-#[cfg_attr(doc_cfg, doc(cfg(feature = "extra-traits")))]
+#[cfg_attr(docsrs, doc(cfg(feature = "extra-traits")))]
 impl Debug for crate::WherePredicate {
     fn fmt(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("WherePredicate::")?;
